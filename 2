@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+echo "Init Stage 2"
+
+source ./vars
+cd "$basedir"
+
+source ./vars
+mkdir -p "$daemonsdir"
+
+modprobe fuse
+exec daemonfs -b bootstrap "$daemonsdir" > /run/daemonfs-log
+# /home/mojyack/build/daemonfs-configs/system/daemons/main/dhcpcd/run &!
+# daemonfs -v -b bootstrap "$daemonsdir" > /tmp/log &!
+# exec /usr/sbin/sshd -D

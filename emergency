@@ -1,0 +1,7 @@
+#!/bin/sh
+
+source /etc/init/1.d/10-pseudofs.sh
+source /etc/init/1.d/20-udev.sh
+while true; do
+    /sbin/agetty --noclear tty1 linux
+done
